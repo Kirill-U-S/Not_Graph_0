@@ -18,6 +18,9 @@
     <ClCompile Include="pq-adjacency.cpp">
       <Filter>main</Filter>
     </ClCompile>
+    <ClCompile Include="simplecycles.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Class_Graph.h">
