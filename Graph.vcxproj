@@ -147,6 +147,8 @@
   <ItemGroup>
     <ClCompile Include="Class_Graph.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="pq-adjacency.cpp" />
+    <ClCompile Include="prima.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Class_Graph.h" />
