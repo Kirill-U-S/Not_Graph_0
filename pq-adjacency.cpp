@@ -1,5 +1,4 @@
 #include <iostream>
-#include <new>
 #include "Class_Graph.h"
 #include "Algorithm.h"
 

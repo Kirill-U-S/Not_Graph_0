@@ -5,3 +5,4 @@ void deg(Graph g);
 void simple_cycles(Graph g);
 void prima(Graph g);
 void pq_adjacency(Graph g);
+void adtograph(Graph g);
