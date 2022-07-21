@@ -21,6 +21,12 @@
     <ClCompile Include="simplecycles.cpp">
       <Filter>main</Filter>
     </ClCompile>
+    <ClCompile Include="deg.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="additiontothegraph.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Class_Graph.h">

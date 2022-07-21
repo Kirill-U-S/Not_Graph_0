@@ -33,3 +33,19 @@ int main()
         }
     }
 }
+#include <iostream>
+using namespace std;
+int main()
+{
+    const int N = 6;
+    int smezh[N][N] =
+    {
+        {0,1,1,0,0,1},
+        {1,0,1,1,1,0},
+        {1,1,0,0,0,0},
+        {0,1,0,0,0,1},
+        {0,1,0,0,0,1},
+        {1,0,0,1,1,0}
+    };
+
+}
