@@ -1,6 +1,9 @@
 #include <iostream>
 #include <new>
-int main()
+#include "Class_Graph.h"
+#include "Algorithm.h"
+
+void pq_adjacency(Graph g)
 {
     const int N = sqrt(g.A.size());
     /*копирование изначального массива ј*/
@@ -11,7 +14,10 @@ int main()
     for (int i = 0; i < N; i++)
         for (int j = 0; j < N; j++)
             smezh[i][j] = g.A[i * N + j];
+    /*----------------------------------*/
+
     const int N = 6, rebrs = 8;
+
     int pq[N][rebrs] =
     {
         {1,0,1,0,0,1,0,0},
@@ -21,6 +27,7 @@ int main()
         {0,0,0,0,1,0,0,1},
         {0,0,0,0,0,1,1,1},
     };
+
     int smezh[N][N]{}, x, y ;
     for (int i = 0; i < N; i++)
     {
@@ -70,4 +77,3 @@ int main()
 
     return 0;
 }
-*/
