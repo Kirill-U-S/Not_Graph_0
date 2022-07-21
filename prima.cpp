@@ -3,6 +3,7 @@
 #include <algorithm>
 #include "Class_Graph.h"
 #include "Algorithm.h"
+
 void prima(Graph g) {
     const int N = sqrt(g.A.size());
     int* versh = new int[N];

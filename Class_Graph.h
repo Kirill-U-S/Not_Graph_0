@@ -4,6 +4,7 @@
 
 class Graph {
 public:
+	//TODO: правильно подобрать роль массиву вершин
 	std::vector<int> V;
 	std::vector<int> E;
 
