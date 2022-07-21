@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include <new>
 int main()
 {
@@ -38,7 +38,7 @@ int main()
 }
 //по данным таблицы смежности построить таблицу инцидентности
 //не знаем, как пронумерованы ребра, нужен рисунок, либо список вершин и ребер(но хз надо ли делать эту фичу)
-/*#include <iostream>
+#include <iostream>
 using namespace std;
 int main()
 {
@@ -62,4 +62,3 @@ int main()
     return 0;
 }
 */
-

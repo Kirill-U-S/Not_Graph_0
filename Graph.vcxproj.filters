@@ -32,5 +32,8 @@
     <ClInclude Include="Class_Graph.h">
       <Filter>main</Filter>
     </ClInclude>
+    <ClInclude Include="Algorithm.h">
+      <Filter>main</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

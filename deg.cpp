@@ -1,18 +1,26 @@
 #include <iostream>
+#include <vector>
+#include <cmath>
+#include "Class_Graph.h"
+#include "Algorithm.h"
 
-int main()
+/*мин-макс*/
+void deg(Graph g)
 {
-    const int N = 6;
-    int smezh[N][N] =
-    {
-        {0,1,1,0,0,1},
-        {1,0,1,1,1,0},
-        {1,1,0,0,0,0},
-        {0,1,0,0,0,1},
-        {0,1,0,0,0,1},
-        {1,0,0,1,1,0}
-    };
-    int deg[N], max = 0, min = N, Sum = 0;
+    const int N = sqrt(g.A.size());
+    int* deg = new int[N];
+    int max = 0, min = N, Sum = 0;
+
+    /*копирование изначального массива ј*/
+    int** smezh = new int* [N];
+    for (int i = 0; i < N; i++)
+        smezh[i] = new int[N];
+
+    for (int i = 0; i < N; i++)
+        for (int j = 0; j < N; j++)
+            smezh[i][j] = g.A[i * N + j];
+    /*----------------------------------*/
+
     for (int i = 0; i < N; i++)
     {
         int sum = 0;
@@ -26,5 +34,4 @@ int main()
         Sum += deg[i];
     }
     std::cout << "max deg: " << max << "\nmin deg: " << min << "\nsred deg: " << (double)Sum / N << std::endl;
-    return 0;
 }

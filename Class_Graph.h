@@ -1,7 +1,10 @@
 #pragma once
+#include <iostream>
+#include <vector>
 
 class Graph {
 public:
-	int A[5];
+	std::vector<int> A;
+	Graph();
+	Graph(int V);
 };
-

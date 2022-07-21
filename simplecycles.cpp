@@ -1,5 +1,5 @@
-#include <iostream>
-
+//#include <iostream>
+/*
 int main()
 {
     const int N = 4;
@@ -33,8 +33,7 @@ int main()
         }
     }
 }
-#include <iostream>
-using namespace std;
+
 int main()
 {
     const int N = 6;
@@ -48,4 +47,4 @@ int main()
         {1,0,0,1,1,0}
     };
 
-}
+}*/
