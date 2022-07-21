@@ -1,7 +1,16 @@
-/*#include <iostream>
+#include <iostream>
 #include <new>
 int main()
 {
+    const int N = sqrt(g.A.size());
+    /*копирование изначального массива ј*/
+    int** smezh = new int* [N];
+    for (int i = 0; i < N; i++)
+        smezh[i] = new int[N];
+
+    for (int i = 0; i < N; i++)
+        for (int j = 0; j < N; j++)
+            smezh[i][j] = g.A[i * N + j];
     const int N = 6, rebrs = 8;
     int pq[N][rebrs] =
     {

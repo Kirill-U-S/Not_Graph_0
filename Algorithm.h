@@ -3,3 +3,4 @@
 
 void deg(Graph g);
 void simple_cycles(Graph g);
+void prima(Graph g);

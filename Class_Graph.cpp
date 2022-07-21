@@ -18,7 +18,15 @@ Graph::Graph(int V) {
 	}
 }
 
-///*задание через <V, E>*/
-//Graph(double sv/*какие-то свойства*/) {
-//	//какая-то реализация
-//}
+/*задание через <V, E>*/
+Graph::Graph(int V, int rebrs) {
+	for (int i = 0; i < V; i++) {
+		for (int j = 0; j < rebrs; j++)
+		{
+			int v = 0;
+			std::cin >> v;
+			A.push_back(v);
+		}
+	}
+	//какая-то реализация
+}

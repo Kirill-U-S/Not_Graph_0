@@ -5,18 +5,25 @@
 
 void simple_cycles(Graph g)
 {
-    const int N = 4;
-    int smezh[N][N] =
-    {
-        {0,1,1,1},
-        {1,0,1,0},
-        {1,1,0,1},
-        {1,0,1,0}
-    };
-    int arr[N][N]{}, versh[N] = { 1 }, y = 0, x = 0, sum = 0, k = 0;
+    const int N = sqrt(g.A.size());
+    int** arr = new int* [N];
     //буферный массив циклов
     std::vector<int> bb;
     std::vector<std::vector<int>> buf;
+
+    /*копирование изначального массива ј*/
+    int** smezh = new int* [N];
+    for (int i = 0; i < N; i++)
+        smezh[i] = new int[N];
+
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            smezh[i][j] = g.A[i * N + j];
+            arr[i][j] = 0;
+        }
+    }
 
     for (int i = 0; i < N; i++)
     {
@@ -25,18 +32,16 @@ void simple_cycles(Graph g)
             if (smezh[i][j] && !arr[i][j])
             {
                 arr[i][j] = 1;
-                x = i;
-                y = j;
-                for (int z = y + 1; z < N; z++)
+                for (int z = j + 1; z < N; z++)
                 {
                     //буфер дл€ буфера
                     std::vector<int> bb;
-                    if (smezh[y][z])
+                    if (smezh[j][z] && smezh[z][i])
                     {
                         //проверка на наличие данного цикла
                         bool flag = true;
-                        bb.push_back(x);
-                        bb.push_back(y);
+                        bb.push_back(i);
+                        bb.push_back(j);
                         bb.push_back(z);
                         sort(bb.begin(), bb.end());
 
@@ -45,28 +50,13 @@ void simple_cycles(Graph g)
                                 flag = false;
                         //------------------------
                         if (flag) {
-                            arr[y][z] = arr[z][y] = 1;
-                            std::cout << x << " - " << y << " - " << z << std::endl;
+                            arr[j][z] = arr[z][j] = 1;
+                            std::cout << i << " - " << j << " - " << z << " - " << i << std::endl;
 
                             //добавление цикла
                             buf.push_back(bb);
                         }
                     }
-
-                    //стара€ верси€
-                    //if (smezh[y][z] && flag)
-                    //{
-                    //    arr[y][z] = arr[z][y] = 1;
-                    //    std::cout << x << " - " << y << " - " << z << " - " << x << std::endl;
-                    //    
-                    //    //добавление цикла
-                    //    bb.push_back(x);
-                    //    bb.push_back(y);
-                    //    bb.push_back(z);
-
-                    //    sort(bb.begin(), bb.end());
-                    //    buf.push_back(bb);
-                    //}
                 }
             }
         }
