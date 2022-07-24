@@ -39,6 +39,9 @@
     <ClCompile Include="marshrut.cpp">
       <Filter>main</Filter>
     </ClCompile>
+    <ClCompile Include="kraskala.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Class_Graph.h">

@@ -149,6 +149,7 @@
     <ClCompile Include="Class_Graph.cpp" />
     <ClCompile Include="complete_graph.cpp" />
     <ClCompile Include="deg.cpp" />
+    <ClCompile Include="kraskala.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="marshrut.cpp" />
     <ClCompile Include="multi.cpp" />
