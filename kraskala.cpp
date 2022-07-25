@@ -22,8 +22,8 @@ int main()
     int min = INT_MAX;
     std::vector<int> minn;
     for (int i = 0; i < N; i++) {
-        for (int j = 0; j < N; j++) {
-            if (min > smezh[i][j] && smezh[i][j]) {
+        for (int j = i; j < N; j++) {
+            if (smezh[i][j] > 0) {
                 min = smezh[i][j];
                 minn.push_back(min);
             }
