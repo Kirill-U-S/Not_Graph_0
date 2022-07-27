@@ -8,15 +8,15 @@ using namespace std;
 
 //TODO: Сложность алгоритма весьма высокая, поэтому, как мне кажется, стоит придумать оптимизацию
 
-void dfs(int u, int** arr, vector<int> path, int* versh, int& dlina, vector<vector<int>>& arrpath){
+void dfs(int u, int** arr, vector<int> path, int* versh, int& dlina, vector<vector<int>>& arrpath, int N){
 	path.push_back(u);
 	dlina++;
 	versh[u] = true;
 	
-	for(int v = 0; v < 5; v++){
+	for(int v = 0; v < N; v++){
 		if(arr[u][v] > 0){
 			if(v != path[0] && !versh[v]){
-				dfs(v, arr, path, versh, dlina, arrpath);
+				dfs(v, arr, path, versh, dlina, arrpath, N);
 			}
 			else if(v == path[0] && dlina > 2){
 				path.push_back(v);
@@ -69,7 +69,7 @@ void find_cycles(Graph g){
 	/*--------------------*/
 
 	for(int i = 0; i < N; i++)
-		dfs(i, arr, path, versh, dlina, arrpath);
+		dfs(i, arr, path, versh, dlina, arrpath, N);
 	
 	// for(int i = 0; i < arrpath.size(); i++){
 		// for(int j = 0; j < arrpath[i].size(); j++)
