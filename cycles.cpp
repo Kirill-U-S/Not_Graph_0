@@ -8,7 +8,7 @@ using namespace std;
 
 //TODO: Сложность алгоритма весьма высокая, поэтому, как мне кажется, стоит придумать оптимизацию
 
-void dfs(int u, int** arr, vector<int> path, int* versh, int& dlina, vector<vector<int>>& arrpath, int N){
+void dfs(int u, int** arr, vector<int> path, bool* versh, int& dlina, vector<vector<int>>& arrpath, int N){
 	path.push_back(u);
 	dlina++;
 	versh[u] = true;
@@ -35,12 +35,17 @@ void find_cycles(Graph g){
 	const int N = sqrt(g.A.size());
 	int dlina = 0;
 	int** arr;
-	int versh[N] = { false, false, false, false };
+	bool* versh;
 
 	vector<int> path;
 	vector<vector<int>> arrpath;
 	/*-копирование изначального массива А-*/
+	versh = new bool[N];
 	arr = new int* [N];
+
+	for (int i = 0; i < N; i++)
+		versh[i] = false;
+
 	for (int i = 0; i < N; i++)
 		arr[i] = new int[N];
 
