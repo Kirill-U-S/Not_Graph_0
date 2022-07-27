@@ -42,6 +42,12 @@
     <ClCompile Include="kraskala.cpp">
       <Filter>main</Filter>
     </ClCompile>
+    <ClCompile Include="cycles.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="DA_2.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Class_Graph.h">

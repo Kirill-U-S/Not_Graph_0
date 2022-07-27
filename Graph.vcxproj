@@ -148,6 +148,8 @@
     <ClCompile Include="additiontothegraph.cpp" />
     <ClCompile Include="Class_Graph.cpp" />
     <ClCompile Include="complete_graph.cpp" />
+    <ClCompile Include="cycles.cpp" />
+    <ClCompile Include="DA_2.cpp" />
     <ClCompile Include="deg.cpp" />
     <ClCompile Include="kraskala.cpp" />
     <ClCompile Include="Main.cpp" />
