@@ -9,3 +9,4 @@ void adtograph(Graph g);
 void complete(Graph g);
 void psevdo(Graph g);
 void multi(Graph g);
+void find_cycles(Graph g);

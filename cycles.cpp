@@ -1,10 +1,14 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include "Class_Graph.h"
+#include "Algorithm.h"
 
 using namespace std;
 
-void dfs(int u, int arr[5][5], vector<int> path, int versh[5], int& dlina, vector<vector<int>>& arrpath){
+//TODO: Сложность алгоритма весьма высокая, поэтому, как мне кажется, стоит придумать оптимизацию
+
+void dfs(int u, int** arr, vector<int> path, int* versh, int& dlina, vector<vector<int>>& arrpath){
 	path.push_back(u);
 	dlina++;
 	versh[u] = true;
@@ -27,8 +31,26 @@ void dfs(int u, int arr[5][5], vector<int> path, int versh[5], int& dlina, vecto
 	versh[u] = false;
 }
 
-int main(){
-	const int N =5;
+void find_cycles(Graph g){
+	const int N = sqrt(g.A.size());
+	int dlina = 0;
+	int** arr;
+	int versh[N] = { false, false, false, false };
+
+	vector<int> path;
+	vector<vector<int>> arrpath;
+	/*-копирование изначального массива А-*/
+	arr = new int* [N];
+	for (int i = 0; i < N; i++)
+		smezh[i] = new int[N];
+
+	for (int i = 0; i < N; i++)
+		for (int j = 0; j < N; j++)
+			arr[i][j] = g.A[i * N + j];
+	/*------------------------------------*/
+
+
+	/*-работающие примеры-*/
 	// int arr[N][N] = {
 		// {0, 1, 1, 0},
 		// {1, 0, 1, 1},
@@ -36,22 +58,18 @@ int main(){
 		// {0, 1, 1, 0}
 	// };
 	
-	int arr[N][N] = {
+	/*int arr[N][N] = {
 		{0, 1, 1, 0, 0},
 		{1, 0, 1, 0, 0},
 		{1, 1, 0, 1, 1},
 		{0, 0, 1, 0, 1},
 		{0, 0, 1, 1, 0}
 	};
-	
-	int dlina = 0;
-	int versh[N] = {false, false, false, false};
-	vector<int> path;
-	vector<vector<int>> arrpath;
-	
-	for(int i = 0; i < N; i++){
+	*/
+	/*--------------------*/
+
+	for(int i = 0; i < N; i++)
 		dfs(i, arr, path, versh, dlina, arrpath);
-	}
 	
 	// for(int i = 0; i < arrpath.size(); i++){
 		// for(int j = 0; j < arrpath[i].size(); j++)
@@ -59,6 +77,7 @@ int main(){
 		
 		// cout<<"\n";
 	// }
+
 	/*-сортировка верных путей-*/
 	/*-буферный массив-*/
 	vector<vector<vector<int>>> buf;
