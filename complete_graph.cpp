@@ -1,5 +1,6 @@
 //полный или сильносвязный граф
 #include <iostream>
+#include <cmath>
 #include "Class_Graph.h"
 #include "Algorithm.h"
 

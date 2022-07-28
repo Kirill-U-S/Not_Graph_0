@@ -151,6 +151,7 @@
     <ClCompile Include="cycles.cpp" />
     <ClCompile Include="DA_2.cpp" />
     <ClCompile Include="deg.cpp" />
+    <ClCompile Include="find_cycles_fact.cpp" />
     <ClCompile Include="kraskala.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="marshrut.cpp" />
@@ -158,11 +159,13 @@
     <ClCompile Include="pq-adjacency.cpp" />
     <ClCompile Include="prima.cpp" />
     <ClCompile Include="psevdo.cpp" />
+    <ClCompile Include="regular.cpp" />
     <ClCompile Include="simplecycles.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Algorithm.h" />
     <ClInclude Include="Class_Graph.h" />
+    <ClInclude Include="empty_class.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

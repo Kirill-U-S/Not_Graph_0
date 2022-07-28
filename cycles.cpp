@@ -1,33 +1,33 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cmath>
 #include "Class_Graph.h"
 #include "Algorithm.h"
 
 using namespace std;
-
 //TODO: Сложность алгоритма весьма высокая, поэтому, как мне кажется, стоит придумать оптимизацию
 
 void dfs(int u, int** arr, vector<int> path, bool* versh, int& dlina, vector<vector<int>>& arrpath, int N){
-	path.push_back(u);
+	path.push_back(u);  //вершина с которой мы работаем, т е нулевая
 	dlina++;
 	versh[u] = true;
 	
 	for(int v = 0; v < N; v++){
-		if(arr[u][v] > 0){
-			if(v != path[0] && !versh[v]){
-				dfs(v, arr, path, versh, dlina, arrpath, N);
+		if(arr[u][v] > 0){     //если между вершинами есть ребро
+			if(v != path[0] && !versh[v]){  //вершинку мы сравниваем с начальной вершиной пути(см 76 строка) и чтобы versh был не равен тру
+				dfs(v, arr, path, versh, dlina, arrpath, N); 
 			}
-			else if(v == path[0] && dlina > 2){
-				path.push_back(v);
-				arrpath.push_back(path);
-				path.pop_back();
+			else if(v == path[0] && dlina > 2){    //используем начальную вершинку и чтобы мы не ходили по одному и тому же ребру(т е вершин задействовано больше двух)
+				path.push_back(v);     //добавляем начальную вершину снова
+				arrpath.push_back(path);  //весь путь добавляем к вектору arrpath
+				path.pop_back();       //удаляем только что найденный путь
 			}
 		}
 	}
 	
-	path.pop_back();
-	dlina--;
+	path.pop_back();  //вышли из цикла так как не можем больше никуда пойти(вершины не могут повторяться), поэтому удаляем
+	dlina--;         
 	versh[u] = false;
 }
 
@@ -56,12 +56,12 @@ void find_cycles(Graph g){
 
 
 	/*-работающие примеры-*/
-	// int arr[N][N] = {
-		// {0, 1, 1, 0},
-		// {1, 0, 1, 1},
-		// {1, 1, 0, 1},
-		// {0, 1, 1, 0}
-	// };
+	/* int arr[N][N] = {
+		 {0, 1, 1, 0},
+		 {1, 0, 1, 1},
+		 {1, 1, 0, 1},
+		 {0, 1, 1, 0}
+	 };*/
 	
 	/*int arr[N][N] = {
 		{0, 1, 1, 0, 0},
@@ -76,13 +76,6 @@ void find_cycles(Graph g){
 	for(int i = 0; i < N; i++)
 		dfs(i, arr, path, versh, dlina, arrpath, N);
 	
-	// for(int i = 0; i < arrpath.size(); i++){
-		// for(int j = 0; j < arrpath[i].size(); j++)
-			// cout << arrpath[i][j] << " ";
-		
-		// cout<<"\n";
-	// }
-
 	/*-сортировка верных путей-*/
 	/*-буферный массив-*/
 	vector<vector<vector<int>>> buf;
@@ -107,25 +100,40 @@ void find_cycles(Graph g){
 	}
 	
 	/*-исключение одинаковых векторов-*/
-	for(int i = 0; i < buf[0].size(); i++){
-		for(int j = 0; j < buf[0].size(); j++){
-			if(buf[0][i].size() == buf[0][j].size()){
+	for (int i = 0; i < buf[0].size(); i++) {
+		for (int j = 0; j < buf[0].size(); j++) {
+			if (i != j && buf[0][i].size() == buf[0][j].size()) {
 				bool flag = true;
-				for(int k = 0; k < buf[0][i].size(); k++)
-					if(buf[0][i][k] != buf[0][j][k])
+				for (int k = 0; k < buf[0][i].size(); k++)
+					if (buf[0][i][k] != buf[0][j][k])
 						flag = false;
-				
-				if(flag)
-					buf[0].erase(buf[0].begin()+j);				
+
+				if (flag)
+					for (int k = 0; k < buf[0][j].size(); k++)  
+						buf[0][j][k] = -1;                      //если элементы повторяются
 			}
 		}
 	}
-	/*--------------------------------*/
-	
-	/*-вывод-*/
-	for(int i = 0; i < buf[0].size(); i++){
-		for(int j = 0; j < buf[0][i].size(); j++)
-			cout<<buf[0][i][j]<<" ";	
-		cout<<"\n";
-	}
+	/* --------------------------------*/
+
+		/*-вывод - */
+		for (int i = 0; i < buf[0].size(); i++) {
+			for (int j = 0; j < buf[0][i].size(); j++)
+				if (buf[0][i][j] == -1)                     
+					break;
+				else {
+					cout << buf[0][i][j] << " ";
+				}
+					
+
+			if (buf[0][i][0] != -1)
+				cout << buf[0][i][0] << "\n";
+			
+		}
+		int girth = buf[0][0].size(); //обхват
+		int P = buf[0][buf[0].size()-1].size();
+		std::cout << "girth: " << girth << std::endl;
+		std::cout << "perimetr: " << P << std::endl;  //протестировать!
+
+
 }

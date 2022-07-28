@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+#include <cmath>
 #include "Class_Graph.h"
 #include "Algorithm.h"
 
