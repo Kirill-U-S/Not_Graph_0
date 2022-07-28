@@ -4,3 +4,4 @@
 #include "Class_Graph.h"
 #include "Algorithm.h"
 #include <algorithm>
+#include <cmath>
