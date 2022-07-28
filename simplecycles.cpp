@@ -10,8 +10,11 @@ void simple_cycles(Graph g)
 
     /*копирование изначального массива ј*/
     int** smezh = new int* [N];
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < N; i++){
         smezh[i] = new int[N];
+        arr[i] = new int[N];
+    }
+        
 
     for (int i = 0; i < N; i++)
     {

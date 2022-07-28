@@ -48,10 +48,10 @@
     <ClCompile Include="DA_2.cpp">
       <Filter>main</Filter>
     </ClCompile>
-    <ClCompile Include="find_cycles_fact.cpp">
+    <ClCompile Include="regular.cpp">
       <Filter>main</Filter>
     </ClCompile>
-    <ClCompile Include="regular.cpp">
+    <ClCompile Include="reachability_matrix.cpp">
       <Filter>main</Filter>
     </ClCompile>
   </ItemGroup>
@@ -60,9 +60,6 @@
       <Filter>main</Filter>
     </ClInclude>
     <ClInclude Include="Algorithm.h">
-      <Filter>main</Filter>
-    </ClInclude>
-    <ClInclude Include="empty_class.h">
       <Filter>main</Filter>
     </ClInclude>
   </ItemGroup>

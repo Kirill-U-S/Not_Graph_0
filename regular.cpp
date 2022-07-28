@@ -1,8 +1,5 @@
 //регул€рный ли граф(все вершины имеют одинаковую степень)
-#include <iostream>
-#include <cmath>
-#include "Class_Graph.h"
-#include "Algorithm.h"
+#include "Libraries.h"
 
 void regular(Graph g) {
 	const int N = sqrt(g.A.size());

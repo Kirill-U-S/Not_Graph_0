@@ -1,5 +1,3 @@
-#include "Libraries.h"
-
 class Graph {
 public:
 	//TODO: правильно подобрать роль массиву вершин

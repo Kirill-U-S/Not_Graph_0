@@ -6,9 +6,10 @@ void prima(Graph g) {
     int** arr = new int* [N];
     /*копирование изначального массива А*/
     int** smezh = new int* [N];
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < N; i++) {
         smezh[i] = new int[N];
-
+        arr[i] = new int[N];
+    }
     //массивы arr and versh должны быть полностью в нулях
     for (int i = 0; i < N; i++)
     {
