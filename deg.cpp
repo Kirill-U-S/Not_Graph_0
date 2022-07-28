@@ -1,7 +1,6 @@
 #include "Libraries.h"
-#include <cmath>
 
-/*мин-макс*/
+/*мин-макс степень вершин у графа*/
 void deg(Graph g)
 {
     const int N = sqrt(g.A.size());

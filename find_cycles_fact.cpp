@@ -1,12 +1,7 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-#include <algorithm>
-#include "Algorithm.h"
-#include "empty_class.h"
+//вывод не самих циклов, а только факт существования их в графе
+#include "Libraries.h"
 
-
-int find_cycles_fact(Graph g) {                              //вывод не самих циклов, а только факт существования их в графе
+int find_cycles_fact(Graph g) {                              
 	const int N = sqrt(g.A.size());
 	int dlina = 0;
 	int** arr;

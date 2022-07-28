@@ -1,5 +1,4 @@
 #include "Libraries.h"
-#include <cmath>
 
 void prima(Graph g) {
     const int N = sqrt(g.A.size());
@@ -10,6 +9,7 @@ void prima(Graph g) {
     for (int i = 0; i < N; i++)
         smezh[i] = new int[N];
 
+    //массивы arr and versh должны быть полностью в нулях
     for (int i = 0; i < N; i++)
     {
         for (int j = 0; j < N; j++)

@@ -1,5 +1,5 @@
+//поиск циклов и вывод их на экран
 #include "Libraries.h"
-#include <cmath>
 
 using namespace std;
 //TODO: Сложность алгоритма весьма высокая, поэтому, как мне кажется, стоит придумать оптимизацию
@@ -126,10 +126,11 @@ void find_cycles(Graph g){
 				cout << buf[0][i][0] << "\n";
 			
 		}
+		//нахождение обхвата и периметра графа
 		int girth = buf[0][0].size(); //обхват
 		int P = buf[0][buf[0].size()-1].size();
 		std::cout << "girth: " << girth << std::endl;
-		std::cout << "perimetr: " << P << std::endl;  //протестировать!
+		std::cout << "perimetr: " << P << std::endl;  //TODO: протестировать!
 
 
 }

@@ -12,3 +12,4 @@ void find_cycles(Graph g);
 int find_cycles_fact(Graph g);
 void dfs(int u, int** arr, std::vector<int> path, bool* versh, int& dlina, std::vector<std::vector<int>>& arrpath, int N);
 void regular(Graph g);
+void kraskala(Graph g);

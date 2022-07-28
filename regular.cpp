@@ -1,3 +1,4 @@
+//регул€рный ли граф(все вершины имеют одинаковую степень)
 #include <iostream>
 #include <cmath>
 #include "Class_Graph.h"
@@ -18,7 +19,7 @@ void regular(Graph g) {
 	for (int i = 0; i < N; i++) {
 		degr[i] = 0;
 		for (int j = 0; j < N; j++)
-			degr[i] += smezh[i][j];
+			degr[i] += smezh[i][j]; //массив со степен€ми вершин
 	}
 	for (int k = 1; k < N; k++)
 	{

@@ -1,7 +1,4 @@
-#include <iostream>
-#include <cmath>
-#include "Class_Graph.h"
-#include "Algorithm.h"
+#include "Libraries.h"
 
 void psevdo(Graph g) {
     const int N = sqrt(g.A.size());
@@ -13,15 +10,16 @@ void psevdo(Graph g) {
     for (int i = 0; i < N; i++)
         for (int j = 0; j < N; j++)
             smezh[i][j] = g.A[i * N + j];
+
     bool multi = false;
     bool gd = false;
     for(int i = 0; i < N; i++)
     {
         for(int j = 0; j < N; j++)
         {
-            if(i != j && smezh[i][j] > 1)
+            if(i != j && smezh[i][j] > 1) //проверка на существование в графе кратных ребер
                 multi = true;
-            else if(i==j && smezh[i][j] > 0)
+            else if(i==j && smezh[i][j] > 0) //проверка на существование в графе петель
                 gd = true;
             else continue;
         }

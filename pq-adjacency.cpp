@@ -1,6 +1,4 @@
-#include <cmath>
 #include "Libraries.h"
-
 
 void pq_adjacency(Graph g)
 {

@@ -1,6 +1,4 @@
 #include "Libraries.h"
-#include <cmath>
-
 
 void simple_cycles(Graph g)
 {

@@ -1,8 +1,5 @@
-//полный или сильносвязный граф
-#include <iostream>
-#include <cmath>
-#include "Class_Graph.h"
-#include "Algorithm.h"
+//полный или сильносвязный граф(между любыми двумя вершинами должно быть одно ребро)
+#include "Libraries.h"
 
 void complete(Graph g) {
     const int N = sqrt(g.A.size());
@@ -14,6 +11,7 @@ void complete(Graph g) {
     for (int i = 0; i < N; i++)
         for (int j = 0; j < N; j++)
             smezh[i][j] = g.A[i * N + j];
+
     bool ed = true;
     for (int i = 0; i < N; i++)
     {

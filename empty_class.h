@@ -1,5 +1,5 @@
-#include <iostream>
-#include <vector>
+//создание пустого класса(заполненного нулями)
+#include "Libraries.h"
 
 class Graph {
 public:
