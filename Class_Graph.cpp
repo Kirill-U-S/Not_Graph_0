@@ -1,6 +1,4 @@
-#include <iostream>
-#include <vector>
-#include "Class_Graph.h"
+#include "Libraries.h"
 
 Graph::Graph(/*какие-то свойства*/)
 {

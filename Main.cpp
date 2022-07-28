@@ -1,8 +1,6 @@
 #include "SDL.h"
-#include <iostream>
-#include <vector>
-#include "Class_Graph.h"
-#include "Algorithm.h"
+#include "Libraries.h"
+
 
 int main(int argc, char* argv[])
 {

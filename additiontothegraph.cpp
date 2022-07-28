@@ -1,7 +1,6 @@
-#include <iostream>
+#include "Libraries.h"
 #include <cmath>
-#include "Class_Graph.h"
-#include "Algorithm.h"
+
 //TODO: написать везде комментарии
 //TODO: регул€рный ли граф(все вершины имеют одинаковую степень)
 //TODO: компоненты св€зности и мосты

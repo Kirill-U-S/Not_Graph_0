@@ -1,9 +1,5 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include "Libraries.h"
 #include <cmath>
-#include "Class_Graph.h"
-#include "Algorithm.h"
 
 using namespace std;
 //TODO: Сложность алгоритма весьма высокая, поэтому, как мне кажется, стоит придумать оптимизацию

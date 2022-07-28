@@ -1,8 +1,6 @@
-#include <vector>
-#include <algorithm>
+#include "Libraries.h"
 #include <cmath>
-#include "Class_Graph.h"
-#include "Algorithm.h"
+
 
 void simple_cycles(Graph g)
 {

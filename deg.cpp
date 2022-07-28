@@ -1,8 +1,5 @@
-#include <iostream>
-#include <vector>
+#include "Libraries.h"
 #include <cmath>
-#include "Class_Graph.h"
-#include "Algorithm.h"
 
 /*мин-макс*/
 void deg(Graph g)
