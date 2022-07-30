@@ -36,28 +36,28 @@ void DA(int V_O, int v, int arr[4][4], bool versh[4], vector<int> path, vector<i
 	path.pop_back();
 	weigth_path.pop_back();
 }
-
-int main(){
-	int N;
-	int arr[4][4] = {
-		{0, 2, 1, 0},
-		{1, 0, 3, 1},
-		{1, 1, 0, 1},
-		{0, 4, 1, 0}
-	};
-	bool versh[4] = {false, false, false, false};
-	vector<int> path;
-	vector<int> weigth_path;
-	vector<vector<int>> arrpath;
-	
-	/*-алгоритм-*/
-	DA(4, 0, arr, versh, path, weigth_path, arrpath);
-	
-	/*-вывод-*/
-	for(int i = 0; i < arrpath.size(); i++){
-		for(int j = 0; j < arrpath[i].size(); j++){
-			cout<<arrpath[i][j]<<" ";
-		}
-		cout<<"\n";
-	}
-}
+/*пример*/
+//int main(){
+//	int N;
+//	int arr[4][4] = {
+//		{0, 2, 1, 0},
+//		{1, 0, 3, 1},
+//		{1, 1, 0, 1},
+//		{0, 4, 1, 0}
+//	};
+//	bool versh[4] = {false, false, false, false};
+//	vector<int> path;
+//	vector<int> weigth_path;
+//	vector<vector<int>> arrpath;
+//	
+//	/*-алгоритм-*/
+//	DA(4, 0, arr, versh, path, weigth_path, arrpath);
+//	
+//	/*-вывод-*/
+//	for(int i = 0; i < arrpath.size(); i++){
+//		for(int j = 0; j < arrpath[i].size(); j++){
+//			cout<<arrpath[i][j]<<" ";
+//		}
+//		cout<<"\n";
+//	}
+//}

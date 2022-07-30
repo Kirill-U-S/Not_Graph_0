@@ -1,11 +1,11 @@
 class Graph {
 public:
 	//TODO: правильно подобрать роль массиву вершин
-	std::vector<int> V;
-	std::vector<int> E;
+	std::vector<int> V;//массив вершин
+	std::vector<int> E;//массив ребер
 
-	std::vector<int> A;
-	std::vector<int> D;
+	std::vector<int> A;//матрица смежности
+	std::vector<int> D;//матрица pq
 	Graph();
 	Graph(int V);
 	Graph(int V, int reb);

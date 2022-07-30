@@ -4,12 +4,15 @@ void prima(Graph g) {
     const int N = sqrt(g.A.size());
     int* versh = new int[N];
     int** arr = new int* [N];
+
     /*копирование изначального массива А*/
     int** smezh = new int* [N];
     for (int i = 0; i < N; i++) {
         smezh[i] = new int[N];
         arr[i] = new int[N];
     }
+    /*----------------------------------*/
+
     //массивы arr and versh должны быть полностью в нулях
     for (int i = 0; i < N; i++)
     {

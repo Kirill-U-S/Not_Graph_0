@@ -1,5 +1,5 @@
 #include "Libraries.h"
-
+//TODO: хз что делать с ним. Отключать? У нас же типа реализован аналог
 void simple_cycles(Graph g)
 {
     const int N = sqrt(g.A.size());

@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-int main()
+int kraskal()
 {
     const int N = 10;
     int smezh[N][N] =
@@ -40,20 +40,20 @@ int main()
         for (int i = 0; i < N; i++) {
             for (int j = i; j < N; j++) {
                 if (minn[z] == smezh[i][j]) {
-                    bool f = true;
-                    vert[i][j] = vert[j][i] = 1;
-                    for (int i = 0; i < N; i++) {
+                    bool t = true;
+                    vert[i][j] = vert[i][j] = minn[z];
+                    for (int k = 0; k < N; k++) {
                         int degr = 0;
-                        for (int j = 0; j < N; j++)
-                            if (vert[i][j])
+                        for (int f = k; f < N; f++)
+                            if (vert[k][f])
                                 degr += 1;
                         if (degr > 0 && degr < 3) {
-                            f = false;
+                            t = false;
                             break;
                         }
                     }
-                    if (!f)
-                        vert[i][j] = vert[j][i] = 0;
+                    if (!t)
+                        vert[i][j] = vert[i][j] = 0;
                     else {
                         std::vector<int> versh;
                         bool flag = true;

@@ -1,9 +1,9 @@
 #include "Libraries.h"
 
-Graph::Graph(/*какие-то свойства*/)
+/*Graph::Graph(какие-то свойства)
 {
 	//реализация графического задания
-}
+}*/
 
 /*задание через матрицу инцидентности*/
 Graph::Graph(int V)
@@ -17,6 +17,17 @@ Graph::Graph(int V)
 			A.push_back(v);
 		}
 	}
+
+	//сразу добавляется pq массив
+	/*for (int i = 0; i < V; i++)
+		for (int j = 0; j < V; j++)
+			if (A[i * V + j] > 0)
+				for (int k = 0; k < V; k++)
+					if (i == k || j == k)
+						pq.push_back(1);
+					else
+						pq.push_back(0);*/
+
 }
 
 /*задание через <V, E>*/
@@ -31,7 +42,7 @@ Graph::Graph(int V, int reb)
 			D.push_back(w);
 		}
 	}
-
+	
 	for (int j = 0; j < reb; j++)
 	{
 		int p = 0;

@@ -3,7 +3,8 @@
 void deg(Graph g);
 void simple_cycles(Graph g);
 void prima(Graph g);
-void pq_adjacency(Graph g);
+void pq_pp(Graph g);
+void pp_pq(Graph g);
 void adtograph(Graph g);
 void complete(Graph g);
 void psevdo(Graph g);
@@ -11,6 +12,7 @@ void multi(Graph g);
 void find_cycles(Graph g);
 void dfs(int u, int** arr, std::vector<int> path, bool* versh, int& dlina, std::vector<std::vector<int>>& arrpath, int N);
 void regular(Graph g);
+int kraskal();
 //void kraskala(Graph g);
 int** reachability_m(Graph g);
 void reachability(Graph g);
