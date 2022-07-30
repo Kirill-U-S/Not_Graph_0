@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include "Libraries.h"
 
 int kraskal()
 {
@@ -40,9 +41,7 @@ int kraskal()
         for (int i = 0; i < N; i++) {
             for (int j = i; j < N; j++) {
                 if (minn[z] == smezh[i][j]) {
-                    bool t = true;
-                    vert[i][j] = vert[i][j] = minn[z];
-                    for (int k = 0; k < N; k++) {
+                    /*for (int k = 0; k < N; k++) {
                         int degr = 0;
                         for (int f = k; f < N; f++)
                             if (vert[k][f])
@@ -51,8 +50,22 @@ int kraskal()
                             t = false;
                             break;
                         }
+                    }*///проверка на циклы(-)
+                    vert[i][j] = vert[i][j] = minn[z];
+                    int flag = 0;
+                    /*поиск циклов через обрезанный поиск*/
+                    for (int i = 0; i < N; i++)
+                    {
+                        bool* versh = new bool[N];
+                        for (int i = 0; i < N; i++)
+                            versh[i] = false;
+
+                        flag += dfs_cut(i, i, N, 0, versh, vert);
+                        if (flag > 0)
+                            break;
                     }
-                    if (!t)
+                    /*-----------------------------------*/
+                    if (flag > 0)
                         vert[i][j] = vert[i][j] = 0;
                     else {
                         std::vector<int> versh;
@@ -62,7 +75,7 @@ int kraskal()
                         for (int i = 0; i < buf.size(); i++)
                             if (buf[i][0] == versh[0] && buf[i][1] == versh[1])
                                 flag = false;
-                        if (flag) {
+                        if (flag == 0) {
                             sum += minn[z];
                             std::cout << i << " - " << j << " Weight: " << minn[z] << ". Interim amount: " << sum << std::endl;
                             buf.push_back(versh);

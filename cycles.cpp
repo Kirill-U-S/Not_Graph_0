@@ -4,6 +4,28 @@
 using namespace std;
 //TODO: Сложность алгоритма весьма высокая, поэтому, как мне кажется, стоит придумать оптимизацию
 
+int dfs_cut(int nach, int u, int N, int dlina, bool* versh, vector<vector<int>>& arr) {
+	dlina++;
+	versh[u] = true;
+	int flag;
+	for (int v = 0; v < N; v++) {
+		if (arr[u][v] > 0) {
+			if (v != nach && !versh[v]) {
+				flag = dfs_cut(nach, v, N, dlina, versh, arr);
+			}
+			else if (v == nach && dlina > 2) {
+				flag = -1;
+			}
+		}
+	}
+	if (flag == -1)
+		return flag;
+	else 
+		return 0;
+	dlina--;
+	versh[u] = false;
+}
+
 void dfs(int u, int** arr, vector<int> path, bool* versh, int& dlina, vector<vector<int>>& arrpath, int N){
 	path.push_back(u);  //вершина с которой мы работаем, т е нулевая
 	dlina++;

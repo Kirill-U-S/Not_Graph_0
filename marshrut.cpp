@@ -4,7 +4,7 @@
 void reachability(Graph g) {
     const int N = sqrt(g.A.size());
     Graph a = Graph(N);
-    a = g;                             //можно ли присвоить объекту другой объект?
+    a = g;
     int** matrix = reachability_m(a);  //построение матрицы достижимости
     bool flag = true;
     for (int i = 0; i < N; i++) {
