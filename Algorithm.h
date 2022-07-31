@@ -17,3 +17,4 @@ int kraskal();
 //void kraskala(Graph g);
 int** reachability_m(Graph g);
 void reachability(Graph g);
+void deg_of_connect(Graph g);
