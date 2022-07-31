@@ -18,3 +18,5 @@ int kraskal();
 int** reachability_m(Graph g);
 void reachability(Graph g);
 void deg_of_connect(Graph g);
+void distances(Graph g);
+void marshrutiki(int u, int** arr, vector<int> path, bool* versh, vector<vector<int>>& arrpath, int N);
