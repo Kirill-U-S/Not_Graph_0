@@ -54,6 +54,9 @@
     <ClCompile Include="reachability_matrix.cpp">
       <Filter>main</Filter>
     </ClCompile>
+    <ClCompile Include="distances.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Class_Graph.h">
