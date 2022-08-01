@@ -2,12 +2,12 @@
 #include "Libraries.h"
 
 using namespace std;
-void rs(int u, int** arr, bool* versh, vector<int>& spisok, int N){
+void rs(int u, int** arr, bool* versh, vector<int>& spisok, int N) {
 	spisok.push_back(u);
 	versh[u] = true;
-	
-	for(int i = 0; i < N; i++) {
-		if(arr[u][i] > 0 && !versh[i]){
+
+	for (int i = 0; i < N; i++) {
+		if (arr[u][i] > 0 && !versh[i]) {
 			arr[u][i] = 0;
 			arr[i][u] = 0;
 			rs(i, arr, versh, spisok, N);
@@ -15,7 +15,7 @@ void rs(int u, int** arr, bool* versh, vector<int>& spisok, int N){
 	}
 }
 
-void deg_of_connect(Graph g){
+void deg_of_connect(Graph g) {
 	/*работающий пример*/
 	//int arr[N][N]{
 	//	{0, 1, 0, 0, 0, 0, 0, 0, 0},
@@ -42,26 +42,26 @@ void deg_of_connect(Graph g){
 
 	vector<int> spisok;
 	vector<vector<int>> obsh;
-	
+
 	bool* versh;
 	versh = new bool[N];
-	for(int i = 0; i < N; i++)
+	for (int i = 0; i < N; i++)
 		versh[i] = false;
-	
-	for(int i = 0; i < N; i++){
-		if(!versh[i]){
+
+	for (int i = 0; i < N; i++) {
+		if (!versh[i]) {
 			rs(i, arr, versh, spisok, N);
 			obsh.push_back(spisok);
 			spisok.clear();
 		}
 	}
-	
-	for(int i = 0; i < obsh.size(); i++){
-		cout<<obsh[i].size()<<": ";
-		for(int j = 0; j < obsh[i].size(); j++)
-			cout<<obsh[i][j]<<" ";
-		cout<<"\n";
+
+	for (int i = 0; i < obsh.size(); i++) {
+		cout << obsh[i].size() << ": ";
+		for (int j = 0; j < obsh[i].size(); j++)
+			cout << obsh[i][j] << " ";
+		cout << "\n";
 	}
-	
-	cout<<"count of: "<<obsh.size();
+
+	cout << "count of: " << obsh.size();
 }
