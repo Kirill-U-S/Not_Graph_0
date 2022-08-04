@@ -3,27 +3,38 @@
 
 using namespace std;
 //TODO: Сложность алгоритма весьма высокая, поэтому, как мне кажется, стоит придумать оптимизацию
+int dfs_cut(int nach, int v, int N, int path_dlina, vector<vector<int>> arr) {
+	path_dlina++;
 
-int dfs_cut(int nach, int u, int N, int dlina, bool* versh, vector<vector<int>>& arr) {
-	dlina++;
-	versh[u] = true;
-	int flag;
-	for (int v = 0; v < N; v++) {
-		if (arr[u][v] > 0) {
-			if (v != nach && !versh[v]) {
-				flag = dfs_cut(nach, v, N, dlina, versh, arr);
+	for (int u = 0; u < N; u++) {
+		int y = 0;
+		if (arr[v][u] > 0) {
+			if (u != nach) {
+				vector<vector<int>> copy;
+				vector<int> g(N, 0);
+
+				for (int i = 0; i < N; i++)
+					copy.push_back(g);
+
+				for (int i = 0; i < N; i++)
+					for (int j = 0; j < N; j++)
+						copy[i][j] = arr[i][j];
+
+				copy[v][u] = 0;
+				copy[u][v] = 0;
+
+				y = dfs_cut(nach, u, N, path_dlina, copy);
 			}
-			else if (v == nach && dlina > 2) {
-				flag = -1;
+			else if (u == nach && path_dlina > 2) {
+				path_dlina--;
+				return -1;
 			}
 		}
+		if (y == -1)
+			return y;
 	}
-	if (flag == -1)
-		return flag;
-	else
-		return 0;
-	dlina--;
-	versh[u] = false;
+	path_dlina--;
+	return 0;
 }
 
 void dfs(int u, int** arr, vector<int> path, bool* versh, int& dlina, vector<vector<int>>& arrpath, int N) {

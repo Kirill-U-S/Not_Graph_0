@@ -27,6 +27,12 @@ int kraskal()
     std::vector<std::vector<int>> vert;
     std::vector<std::vector<int>> buf;
 
+    for (int i = 0; i < 10; i++)
+    {
+        std::vector<int> e(10, 0);
+        vert.push_back(e);
+    }
+
     for (int i = 0; i < N; i++) {
         for (int j = i; j < N; j++) {
             if (smezh[i][j] > 0) {
@@ -51,31 +57,40 @@ int kraskal()
                             break;
                         }
                     }*///проверка на циклы(-)
-                    vert[i][j] = vert[i][j] = minn[z];
+                    vert[i][j] = vert[j][i] = minn[z];
                     int flag = 0;
+                    int g = 0;
                     /*поиск циклов через обрезанный поиск*/
                     for (int i = 0; i < N; i++)
                     {
-                        bool* versh = new bool[N];
-                        for (int i = 0; i < N; i++)
-                            versh[i] = false;
+                        flag = 0;
+                        int y = 0;
+                        /*проверка на единичную вершину*/
+                        for (int j = 0; j < N; j++)
+                            if (vert[i][j] != 0)
+                                y++;
+                        /*-----------------------------*/
 
-                        flag += dfs_cut(i, i, N, 0, versh, vert);
-                        if (flag > 0)
-                            break;
+                        if (y != 1)
+                            flag = dfs_cut(i, i, N, 0, vert);
+
+                        if (flag == -1)
+                            g += flag;
+                        else if (flag > 0)
+                            std::cout << "ERROR\n";
                     }
                     /*-----------------------------------*/
-                    if (flag > 0)
-                        vert[i][j] = vert[i][j] = 0;
+                    if (g < 0)
+                        vert[i][j] = vert[j][i] = 0;
                     else {
                         std::vector<int> versh;
-                        bool flag = true;
+                        bool fl = true;
                         versh.push_back(i);
                         versh.push_back(j);
                         for (int i = 0; i < buf.size(); i++)
                             if (buf[i][0] == versh[0] && buf[i][1] == versh[1])
-                                flag = false;
-                        if (flag == 0) {
+                                fl = false;
+                        if (fl) {
                             sum += minn[z];
                             std::cout << i << " - " << j << " Weight: " << minn[z] << ". Interim amount: " << sum << std::endl;
                             buf.push_back(versh);
@@ -86,6 +101,8 @@ int kraskal()
         }
     }
     return 0;
+
+
 }
 
 
