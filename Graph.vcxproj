@@ -151,6 +151,7 @@
     <ClCompile Include="cycles.cpp" />
     <ClCompile Include="DA_2.cpp" />
     <ClCompile Include="deg.cpp" />
+    <ClCompile Include="degree_of_connectivity.cpp" />
     <ClCompile Include="distances.cpp" />
     <ClCompile Include="kraskala.cpp" />
     <ClCompile Include="Main.cpp" />

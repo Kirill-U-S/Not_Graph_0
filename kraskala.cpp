@@ -1,52 +1,37 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
 #include "Libraries.h"
 
-int kraskal()
-{
-    const int N = 10;
-    int smezh[N][N] =
-    {
-        {0,10,0,0,20,0,0,15,0,0},
-        {10,0,5,0,0,0,0,2,8,9},
-        {0,5,0,16,0,0,0,0,4,0},
-        {0,0,16,0,28,25,0,0,11,9},
-        {20,0,0,28,0,15,0,0,0,0},
-        {0,0,0,25,15,0,10,0,7,5},
-        {0,0,0,0,0,10,0,11,0,3},
-        {15,2,0,0,0,0,11,0,4,14},
-        {0,8,4,11,0,7,0,4,0,0},
-        {0,9,0,9,0,5,3,14,0,0}
-    };
+void kraskal(Graph g) {
+    const int N = sqrt(g.A.size());
 
+    /*копирование изначального массива А*/
+    int** smezh = new int* [N];
     int sum = 0, vertices = 0;
-    int min = INT_MAX;
     std::vector<int> minn;
     std::vector<int> versh;
     std::vector<std::vector<int>> vert;
     std::vector<std::vector<int>> buf;
-
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < N; i++)
     {
-        std::vector<int> e(10, 0);
+        smezh[i] = new int[N];
+        std::vector<int> e(N, 0);
         vert.push_back(e);
     }
 
-    for (int i = 0; i < N; i++) {
-        for (int j = i; j < N; j++) {
-            if (smezh[i][j] > 0) {
-                min = smezh[i][j];
-                minn.push_back(min);
-            }
-        }
-    }
+    for (int i = 0; i < N; i++)
+        for (int j = 0; j < N; j++)
+            smezh[i][j] = g.A[i * N + j];
+
+    for (int i = 0; i < N; i++) 
+        for (int j = i; j < N; j++) 
+            if (smezh[i][j] > 0) 
+                minn.push_back(smezh[i][j]); //все ребра существующие ребра заносим в вектор
+
     sort(minn.begin(), minn.end());
 
     for (int z = 0; z < minn.size(); z++) {
         for (int i = 0; i < N; i++) {
             for (int j = i; j < N; j++) {
-                if (minn[z] == smezh[i][j]) {
+                if (minn[z] == smezh[i][j]) { //находим ребро в матрице смежности
                     /*for (int k = 0; k < N; k++) {
                         int degr = 0;
                         for (int f = k; f < N; f++)
@@ -100,9 +85,6 @@ int kraskal()
             }
         }
     }
-    return 0;
-
-
 }
 
 

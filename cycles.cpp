@@ -3,7 +3,7 @@
 
 using namespace std;
 //TODO: —ложность алгоритма весьма высока€, поэтому, как мне кажетс€, стоит придумать оптимизацию
-int dfs_cut(int nach, int v, int N, int path_dlina, vector<vector<int>> arr) {
+int dfs_cut(int nach, int v, int N, int path_dlina, vector<vector<int>> arr) { //дл€ краскала
 	path_dlina++;
 
 	for (int u = 0; u < N; u++) {
@@ -11,7 +11,7 @@ int dfs_cut(int nach, int v, int N, int path_dlina, vector<vector<int>> arr) {
 		if (arr[v][u] > 0) {
 			if (u != nach) {
 				vector<vector<int>> copy;
-				vector<int> g(N, 0);
+				vector<int> g(N, 0); //что делает?
 
 				for (int i = 0; i < N; i++)
 					copy.push_back(g);
@@ -20,9 +20,7 @@ int dfs_cut(int nach, int v, int N, int path_dlina, vector<vector<int>> arr) {
 					for (int j = 0; j < N; j++)
 						copy[i][j] = arr[i][j];
 
-				copy[v][u] = 0;
-				copy[u][v] = 0;
-
+				copy[v][u] = copy[u][v] = 0;
 				y = dfs_cut(nach, u, N, path_dlina, copy);
 			}
 			else if (u == nach && path_dlina > 2) {
@@ -38,7 +36,7 @@ int dfs_cut(int nach, int v, int N, int path_dlina, vector<vector<int>> arr) {
 }
 
 void dfs(int u, int** arr, vector<int> path, bool* versh, int& dlina, vector<vector<int>>& arrpath, int N) {
-	path.push_back(u);  //вершина с которой мы работаем, т е нулева€
+	path.push_back(u);  //вершина с которой мы работаем, т. е. нулева€
 	dlina++;
 	versh[u] = true;
 
